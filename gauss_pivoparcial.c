@@ -30,17 +30,21 @@ void troca(double *a, double *b, int dim)
 
 double **triang_sup(double **M, int dim)
 {
- 	int i, j, k, h, p;
+ 	int i, j, k, h, p = -1;
  	double aux, t;
  	
  	for(k=0;k<dim;k++) // função que faz triangular superior
  	{	for(h=k;h<dim;h++)
- 			if(M[k][k]<M[h][k])
+ 			if(M[k][k]<fabs(M[h][k]))
 				p = h;
  		
- 		troca(M[k],M[p],dim);
- 		puts("Matriz trocada");
- 		imprime(M,dim);
+ 		if(p!=-1)
+		{	troca(M[k],M[p],dim);
+ 			puts("Matriz trocada");
+ 			imprime(M,dim);
+		}
+	 	
+	 	p = -1;
  		
  		for(i=k+1;i<dim;i++)
  		{	
