@@ -72,7 +72,7 @@ double **ler(char *arquivo, int *tam)
 	R = malloc(dim*sizeof(double));
 
 	for(i=0;i<dim;i++)
-		R[i] = (double *)malloc((dim+1)*sizeof(double*));
+		R[i] = (double *)malloc((dim+1)*sizeof(double));
 	
 	for(i=0;i<dim;i++)
 	{	for(j=0;j<dim+1;j++)
